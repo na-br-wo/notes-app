@@ -2,6 +2,7 @@
 const express = require('express')
 const app = express();
 const fs = require('fs')
+const path = require('path')
 const PORT = 3001
 
 
@@ -23,8 +24,12 @@ app.get('/', (req, res) => {
 })
 
 // HTML routes
-// const indexRouter = require('./public/index.html')
-// const notesRouter = require('./public/notes.html')
+app.get('/index', (req, res) =>
+  res.sendFile(path.join(__dirname, './public/index.html'))
+)
+app.get('/notes', (req, res) =>
+  res.sendFile(path.join(__dirname, './public/notes.html'))
+)
 
 
 
